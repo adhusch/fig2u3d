@@ -83,7 +83,7 @@ function [vertices, faces, facevertexcdata, renderer] = single_surf_preprocessor
 %% shading -> renderer in adobe reader
 edgecolor = get(h, 'EdgeColor');
 if strcmp(edgecolor, 'none')
-    renderer = 'Solid';
+    renderer = 'SolidOutline';
 else
     renderer = 'SolidWireframe';
 end

@@ -44,9 +44,9 @@ end
 %% Use pdflatex to generate the pdf
 switch latex_compiler
     case 'pdflatex'
-        cmd = ['pdflatex --interaction=nonstopmode ', fname, '.tex'];
+        cmd = ['/Library/TeX/texbin/pdflatex --interaction=nonstopmode ', fname, '.tex'];
     case 'xelatex'
-        cmd = ['xelatex --interaction=nonstopmode ', fname, '.tex'];
+        cmd = ['/Library/TeX/texbin/xelatex --interaction=nonstopmode ', fname, '.tex'];
     otherwise
         error('latex:compiler', 'Unknown LaTeX compiler.')
 end 
