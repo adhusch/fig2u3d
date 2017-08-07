@@ -22,11 +22,6 @@ if nargin == 0
     return
 end
 
-hf = figure('Visible','off');
-hp = patch('vertices',points,'faces',faces);
-normals = get(hp,'Vertices'); % workaround
-close(hf);
-%Make the normals unit norm
-norms = sqrt(sum(normals.*conj(normals),2));
-gidx = find(norms);
-normals(gidx,:) = - normals(gidx,:) ./ repmat(norms(gidx),1,3);
+fv.faces = faces;
+fv.vertices = points;
+normals = patchnormals(fv);
