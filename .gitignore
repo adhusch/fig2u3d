@@ -88,3 +88,5 @@ idtf2u3d/bin/*
 dist/*
 *.u3d
 *.vws
+
+dependencies/*
