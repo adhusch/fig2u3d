@@ -55,6 +55,7 @@ height=\\linewidth,%%
 activate=pagevisible,%%
 deactivate=pageinvisible,%%
 3Dviews=%s.vws,%%
+3Dlights=Day,%%
 3Dtoolbar]{%%
     \\includegraphics[width=\\linewidth]{%s.png}%%
 }{%s.u3d}%%
@@ -69,6 +70,7 @@ str = verbatim;
 \\includemovie[%%
 poster=%s.png,%%
 3Dviews2=%s.vws,%%
+3Dlights=Day,%%
 autoplay,%%
 toolbar]{\\linewidth}{\\linewidth}{%s.u3d}
 %}
