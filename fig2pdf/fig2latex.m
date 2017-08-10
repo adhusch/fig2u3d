@@ -63,7 +63,7 @@ else
     s = '';
 end
 
-doc = '\\documentclass{article}\n';
+doc = '\\documentclass[a4paper]{article}\n\\usepackage[margin=0.3in]{geometry}\n';
 begin = '\\usepackage{graphicx}\n\\begin{document}\n';
 title= ['\\section*{' ax.Title.String '}\n'];
 
