@@ -50,8 +50,13 @@ switch latex_compiler
     otherwise
         error('latex:compiler', 'Unknown LaTeX compiler.')
 end 
-
+currDir=pwd; % workaround
+if(~isempty(fileparts(fname)))
+    cd(fileparts(fname));
+end
 status = system(cmd);
+cd(currDir);
+ 
 if status ~= 0
     error('latex:compile', 'LaTeX compilation failed.')
 end

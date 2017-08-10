@@ -115,10 +115,10 @@ else
     coo = ['    COO=', num2str(center_of_orbit), '\n'];
     c2c = ['    C2C=', num2str(center_of_orbit_2_camera_vector), '\n'];
     roo = ['    ROO=', num2str(radius_of_orbit), '\n'];
-    
+    lights = '    LIGHTS=day\n';
     roll = ['    ROLL=', num2str(camera_roll), '\n'];
     
-    views = [viewname, coo, c2c, roo, roll, proj];
+    views = [viewname, coo, c2c, roo, lights, roll, proj];
 end
 
 str = [fileinfo, views];

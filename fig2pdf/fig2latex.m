@@ -64,10 +64,13 @@ else
 end
 
 doc = '\\documentclass[class=minimal,border=0pt]{standalone}\n';
+begin = '\\usepackage{graphicx}\\\nbegin{document}\n';
+title= ['\\section{' ax.Title '}\n'];
+
 if strcmp(media9_or_movie15, 'media9')
-    content = [doc, s, media9(pdforxelatex), latex_content];
+    content = [doc, s, media9(pdforxelatex), begin, title, latex_content];
 elseif strcmp(pdforxelatex, 'xelatex')
-    error('xelatex:movie15', 'Movie15 does not work well with XeLaTeX.')
+    error('xelatex:movie15', 'Movie?15 does not work well with XeLaTeX.')
 else
     content = [doc, s, movie15, latex_content];
 end
@@ -81,8 +84,6 @@ function [str] = latex_content
 % packages needed by xelatex = string
 str = verbatim;
 %{
-\\usepackage{graphicx}%%
-\\begin{document}
     \\input{%s_small}%%
 \\end{document}
 %}
