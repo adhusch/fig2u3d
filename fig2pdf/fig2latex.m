@@ -65,7 +65,7 @@ end
 
 doc = '\\documentclass[class=minimal,border=0pt]{standalone}\n';
 begin = '\\usepackage{graphicx}\\\nbegin{document}\n';
-title= ['\\section{' ax.Title '}\n'];
+title= ['\\section{' ax.Title.String '}\n'];
 
 if strcmp(media9_or_movie15, 'media9')
     content = [doc, s, media9(pdforxelatex), begin, title, latex_content];
