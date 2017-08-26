@@ -51,13 +51,13 @@ str = verbatim;
 %{
 \\includemedia[%%
 width=\\linewidth,%%
-height=\\linewidth,%%
+height=18cm,%%
 activate=pagevisible,%%
 deactivate=pageinvisible,%%
 3Dviews=%s.vws,%%
 3Dlights=Day,%%
 3Dtoolbar]{%%
-    \\includegraphics[width=\\linewidth]{%s.png}%%
+    \\includegraphics[width=\\linewidth,height=18cm,keepaspectratio]{%s.png}%%
 }{%s.u3d}%%
 %}
 
