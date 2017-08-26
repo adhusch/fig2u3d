@@ -125,7 +125,7 @@ str = [fileinfo, views];
 
 %% part renderers
 if ~isempty(part_renderers)
-    part_strs = add_part_renderers(part_renderers);
+    part_strs = add_part_renderers(part_renderers, mesh_tags);
 else
     part_strs = {''};
 end
@@ -152,7 +152,7 @@ for i=1:n
     %partname = ['Mesh', num2str(i) ];
     part_rendermode = part_renderers{1, i};
     
-    s = sprintf(s, mesh_tags{i}, part_rendermode);
+    s = sprintf(s, mesh_tags{i}, i, part_rendermode);
     part_strs{1, i} = s;
 end
 
@@ -160,7 +160,7 @@ function [str] = part_str
 str = verbatim;
 %{
 
-    PART=%s
+    PART=%s%d
         RENDERMODE=%s
     END
 

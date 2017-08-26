@@ -56,11 +56,11 @@ if isempty(sh)
     disp('No surfaces found.');
     vertices            = [];
     faces               = [];
-    facevertexcdata     = [];
+    facevertexcdata     = [];   
+    mesh_tags = '';
     renderer = [];
     return
 end
-
 %% process each surface
 N = size(sh, 1); % number of surfaces
 vertices = cell(1, N);
