@@ -1,4 +1,4 @@
-function [nodes] = idtf_model_nodes(n_meshes, n_lines, n_pointsets)
+function [nodes] = idtf_model_nodes(n_meshes, n_lines, n_pointsets, mesh_node_tags)
 % File:      idtf_model_nodes.m
 % Author:    Ioannis Filippidis, jfilippidis@gmail.com
 % Date:      2012.06.10 - 2012.06.24
@@ -8,12 +8,15 @@ function [nodes] = idtf_model_nodes(n_meshes, n_lines, n_pointsets)
 
 % depends
 %   verbatim
+if(nargin < 4)
+    mesh_node_tags = repmat({'Mesh'},1,n_meshes);
+end
 
 %% mesh nodes
 mesh_node = mesh_node_str;
 temp_nodes = cell(1, n_meshes);
 for i=1:n_meshes
-    cur_mesh_node = sprintf(mesh_node, i, i);
+    cur_mesh_node = sprintf(mesh_node, mesh_node_tags{i}, i, i);
     temp_nodes{1, i} = cur_mesh_node;
 end
 mesh_nodes = [temp_nodes{:} ];
@@ -48,7 +51,7 @@ str = verbatim;
 %{
 
 NODE "MODEL" {
-     NODE_NAME "Mesh%d"
+     NODE_NAME "%s%d"
      PARENT_LIST {
           PARENT_COUNT 1
           PARENT 0 {

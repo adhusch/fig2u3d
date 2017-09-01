@@ -1,4 +1,4 @@
-function [vertices, faces, facevertexcdata, renderer] = u3d_pre_surface(ax)
+function [vertices, faces, facevertexcdata, renderer, mesh_tags] = u3d_pre_surface(ax)
 %U3D_PRE_SURFACE    Preprocess surface output to u3d.
 %    U3D_PRE generates the input for the MESH_TO_LATEX function from
 %    Alexandre Gramfort from your surface-graphs. The surface graphs 3d-model can be
@@ -56,11 +56,11 @@ if isempty(sh)
     disp('No surfaces found.');
     vertices            = [];
     faces               = [];
-    facevertexcdata     = [];
+    facevertexcdata     = [];   
+    mesh_tags = '';
     renderer = [];
     return
 end
-
 %% process each surface
 N = size(sh, 1); % number of surfaces
 vertices = cell(1, N);
@@ -77,6 +77,11 @@ for i=1:N
     faces{1, i} = f;
     facevertexcdata{1, i} = fvx;
     renderer{1, i} = r;
+    if(~isempty(h.Tag))
+        mesh_tags{i} = h.Tag; %#ok<AGROW>
+    else
+        mesh_tags{i} = 'Surface'; %#ok<AGROW>
+    end
 end
 
 function [vertices, faces, facevertexcdata, renderer] = single_surf_preprocessor(h)

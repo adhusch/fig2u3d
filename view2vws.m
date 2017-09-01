@@ -1,4 +1,4 @@
-function [] = view2vws(ax, filename, part_renderers, fix_daspect)
+function [] = view2vws(ax, filename, part_renderers, fix_daspect, mesh_tags)
 %VIE2VWS    Saves current view in a views file for LaTeX media9 package.
 %
 % See also FIG2U3D.
@@ -125,7 +125,7 @@ str = [fileinfo, views];
 
 %% part renderers
 if ~isempty(part_renderers)
-    part_strs = add_part_renderers(part_renderers);
+    part_strs = add_part_renderers(part_renderers, mesh_tags);
 else
     part_strs = {''};
 end
@@ -143,16 +143,16 @@ s = sprintf(str);
 disp('Exported axes view in .vws file for LaTeX media9 package is:')
 disp(s)
 
-function [part_strs] = add_part_renderers(part_renderers)
+function [part_strs] = add_part_renderers(part_renderers, mesh_tags)
 n = size(part_renderers, 2);
 part_strs = cell(1, n);
 for i=1:n
     s = part_str;
     
-    partname = ['Mesh', num2str(i) ];
+    %partname = ['Mesh', num2str(i) ];
     part_rendermode = part_renderers{1, i};
     
-    s = sprintf(s, partname, part_rendermode);
+    s = sprintf(s, mesh_tags{i}, i, part_rendermode);
     part_strs{1, i} = s;
 end
 
@@ -160,7 +160,7 @@ function [str] = part_str
 str = verbatim;
 %{
 
-    PART=%s
+    PART=%s%d
         RENDERMODE=%s
     END
 

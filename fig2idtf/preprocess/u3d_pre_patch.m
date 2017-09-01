@@ -1,4 +1,4 @@
-function [vertices, faces, facevertexcdata, renderer] = u3d_pre_patch(ax)
+function [vertices, faces, facevertexcdata, renderer, mesh_tags] = u3d_pre_patch(ax)
 %U3D_PRE_PATCH    Preprocess surface output to u3d.
 %
 % usage 
@@ -74,6 +74,11 @@ for i=1:N
     faces{1, i} = f;
     facevertexcdata{1, i} = fvx;
     renderer{1, i} = r;
+    if(~isempty(h.Tag))
+        mesh_tags{i} = h.Tag; %#ok<AGROW>
+    else
+        mesh_tags{i} = 'Patch'; %#ok<AGROW>
+    end
 end
 
 function [vertices, faces, facevertexcdata, renderer] = single_patch_preprocessor(h)
