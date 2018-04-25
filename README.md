@@ -1,3 +1,5 @@
+This is a fork of johnyf/u3d to fix compatibility issues with recent Matlab versions. Tested to work with Matlab 2017a.
+
 Export figure to 3D interactive PDF
 ===================================
 
