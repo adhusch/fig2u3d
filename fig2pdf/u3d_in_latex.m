@@ -51,7 +51,7 @@ str = verbatim;
 %{
 \\includemedia[%%
 width=\\linewidth,%%
-height=18cm,%%
+height=17cm,%%
 activate=pagevisible,%%
 deactivate=pageinvisible,%%
 3Dviews=%s.vws,%%

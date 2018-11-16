@@ -58,5 +58,5 @@ status = system(cmd);
 cd(currDir);
  
 if status ~= 0
-    error('latex:compile', 'LaTeX compilation failed.')
+    warning('latex:compile', 'LaTeX compilation returned non-zero status code!.')
 end

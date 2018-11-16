@@ -71,7 +71,7 @@ curpath = pwd;
 
 % Intel Mac
 if ismac
-    idtf_executable_path = [mfiledir, '/bin/maci/'];
+    idtf_executable_path = [mfiledir, '/bin/MACI64/'];
     cd(idtf_executable_path)
     
     IDTFcmd = './IDTFConverter';
@@ -83,7 +83,7 @@ end
 
 % Linux
 if isunix && ~ismac
-    idtf_executable_path = [mfiledir, '/bin/glx/'];
+    idtf_executable_path = [mfiledir, '/bin/GLNXA64/'];
     cd(idtf_executable_path)
     
     IDTFcmd = './IDTFConverter.sh';
@@ -96,7 +96,7 @@ end
 % windows
 if ispc
     win_mfiledir = strrep(mfiledir, '\', '\\');
-    IDTFcmd = ['"', win_mfiledir, '\\bin\\w32\\IDTFConverter.exe"'];
+    IDTFcmd = ['"', win_mfiledir, '\\bin\\PCWIN64\\IDTFConverter.exe"'];
 end
 
 %% idtf -> u3d conversion
